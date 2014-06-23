@@ -1,0 +1,5 @@
+<%= form_for @experience do |f| %>
+ <p>Adventure name</p> <%= f.text_field :caption %>
+  <%= f.text_area :description %>
+  <%= f.submit 'Submit',:class => "btn btn-primary" %>
+<% end %>
