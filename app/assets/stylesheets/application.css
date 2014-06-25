@@ -14,3 +14,11 @@
  *= require_self
  */
 
+#map-container{
+
+}
+
+#map-canvas {  
+	margin: 40px auto;
+	height: 400px; width: 600px 
+}
