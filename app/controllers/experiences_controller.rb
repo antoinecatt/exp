@@ -2,6 +2,7 @@ class ExperiencesController < ApplicationController
   
   def index
     @experience = Experience.new
+
   end
 
   def pins
@@ -21,7 +22,8 @@ class ExperiencesController < ApplicationController
   def create
     @experience = current_user.experiences.new(params_experience)
     if @experience.save
-      redirect_to experiences_path
+      # redirect_to experiences_path
+      render :json => @experience
     else
       render :new
     end

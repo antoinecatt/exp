@@ -1,9 +1,31 @@
 
 $(document).ready(function(){
 
+
+$("#new_experience").on("submit", function (event) {
+	event.preventDefault();
+	console.log(event)
+	$.ajax({
+		url: "/experiences",
+		method: "post",
+		dataType: "json",
+		data: {
+			experience:{
+			"caption": $('#experience_caption').val(),
+			"description": $('#experience_description').val(),
+			"address": $('#experience_address').val()}
+			}
+		}).success(function(data) {
+			console.log(data);
+			$.each(function(index, data){
+				(data.latitude, data.longitude, data.caption)
+			})
+		});
+	});
+
   function initialize() {
     var mapOptions = {
-      center: new google.maps.LatLng(37.160317, -29.53125),
+      center: new google.maps.LatLng(29.7601927, -95.3693896),
       zoom: 3
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -24,7 +46,7 @@ $(document).ready(function(){
 	      var newMarker = new google.maps.Marker({
 	        position: loc,
 	        map: map,
-	        title: name
+	        title: name	
 	      });
 
 	      var newInfoWindow = new google.maps.InfoWindow({

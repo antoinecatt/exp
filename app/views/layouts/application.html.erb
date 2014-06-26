@@ -38,9 +38,9 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><%= link_to 'Home', experiences_path%></li>
+                <li class="active"><%= link_to 'Home', profile_path%></li>
                   <% if current_user %>
-                    <li><%= link_to 'New', new_experience_path%></li>
+                    <li><%= link_to 'New', experiences_path%></li>
                   <% end %>
                   <% if !current_user %>
                       <li><%= link_to 'Sign In', new_user_session_path%></li>
